@@ -43,7 +43,7 @@ class pm_beezyycashier
         $order->save();
         $requestData = [];
         $requestData['reference'] = strval($order->data['id']);
-        $requestData['amount'] = $order->data['payment_due'];
+        $requestData['amount'] = $order->data['payment_due']*$order->data['currency_value'];
         $requestData['currency'] = $order->data['currency_code'];
         $requestData['customer']['email'] = $order->data['customer']['email'];
         $requestData['customer']['name'] = $order->data['customer']['firstname'] . ' ' . $order->data['customer']['lastname'];
